@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        width: 80%;
+        height: auto;
+      }
+      .transition_box {
+        margin-left: 20%;
+      }
+
+      #nama {
+        position: absolute;
+        animation: fadeout 10s ease-out;
+        animation-fill-mode: forwards;
+        z-index: 1;
+      }
+      @keyframes fadeout {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      #yaki {
+        position: absolute;
+      }
+      #shichirin {
+        margin-top: 50%;
+        margin-left: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="transition_box">
+      <img id="nama" src="nama.png" alt="" srcset="" />
+      <img id="yaki" src="yaki.png" alt="" srcset="" />
+      <img id="shichirin" src="shichirin.png" alt="" srcset="" />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script></script>
+  </body>
+</html>
