@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap");
       * {
-        width: 80%;
-        height: auto;
+        margin: 0;
       }
-      .transition_box {
-        margin-left: 20%;
+      html body {
+        background-color: pink;
+        font-family: "Inconsolata", monospace;
+        width: 100vw;
+        height: 100vh;
+      }
+      img {
+        position: absolute;
+      }
+      p {
+        width: 480px;
+        margin: auto;
+      }
+      #nama {
+        margin-left: 2%;
+        animation: fade-out 10000ms ease-in;
+        animation-fill-mode: forwards;
+        z-index: 2;
       }
 
-      #nama {
-        position: absolute;
-        animation: fadeout 10s ease-out;
-        animation-fill-mode: forwards;
-        z-index: 1;
-      }
-      @keyframes fadeout {
+      @keyframes fade-out {
         0% {
           opacity: 1;
         }
@@ -29,21 +39,78 @@
         }
       }
       #yaki {
-        position: absolute;
+        margin-left: 2%;
+        z-index: 1;
       }
       #shichirin {
-        margin-top: 50%;
-        margin-left: 30%;
+        top: 250px;
+      }
+      .time {
+        text-align: center;
+
+        font-size: 5em;
+      }
+      header {
+        background-color: aqua;
+        padding: 1em;
+      }
+      header p {
+        text-align: center;
+      }
+      .timer {
+        position: relative;
       }
     </style>
   </head>
   <body>
-    <div class="transition_box">
-      <img id="nama" src="nama.png" alt="" srcset="" />
-      <img id="yaki" src="yaki.png" alt="" srcset="" />
-      <img id="shichirin" src="shichirin.png" alt="" srcset="" />
-    </div>
+    <header>
+      <p>さんまー</p>
+    </header>
+    <main>
+      <div class="timer">
+        <div class="time">
+          <p class="counter"></p>
+        </div>
+      </div>
+
+        <div class="sanma">
+          <p>
+            <img id="shichirin" src="../images/shichirin.png" />
+            <img id="nama" src="./images/nama.png" />
+            <img id="yaki" src="./images/yaki.png" />
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script></script>
+    <script>
+      let stop;
+      let progress;
+      let addition = 0;
+      const record = document.querySelector("p.counter");
+      // カウンター
+      function timer() {
+        const start = new Date().getTime();
+        let a = setInterval(function () {
+          progress = new Date().getTime() - start + addition;
+          const noms = progress / 1000;
+          const millisecond = progress
+            ? ("0" + String(noms).split(".")[1]).slice(-2)
+            : "00";
+          const nos = Math.trunc(noms);
+          const second = nos
+            ? ("0" + (((nos % 86400) % 3600) % 60)).slice(-2)
+            : "00";
+          if (progress < 10000) {
+            record.textContent = second + "." + millisecond;
+          } else if (progress == 10000) {
+            alert((record.textContent = "タイムオーバー"));
+            clearInterval(a);
+          }
+        }, 10);
+      }
+      timer();
+    </script>
   </body>
 </html>
