@@ -13,23 +13,47 @@
       html body {
         background-color: pink;
         font-family: "Inconsolata", monospace;
+        min-width: 100vw;
+        /* height: 100vh; */
+      }
+      header {
+        margin:0;
+        background-color: aqua;
         width: 100vw;
-        height: 100vh;
+        height: 10vh;
+      }
+      header p {
+        text-align: center;
+      }
+      main{
+        width: 100vw;
+        height: 80vh;
+      }
+      footer{
+        height: 10vh;
+      }
+
+      /* タイマーエリア */
+      .time {
+        text-align: center;
+        font-size: 4em;
+        z-index:3;
+      }
+
+
+      /* 魚エリア */
+      .sanma{
+        position: relative;
       }
       img {
         position: absolute;
-      }
-      p {
-        width: 480px;
-        margin: auto;
+        width: clamp(80vw 50vw 60vw )
       }
       #nama {
-        margin-left: 2%;
         animation: fade-out 10000ms ease-in;
         animation-fill-mode: forwards;
         z-index: 2;
       }
-
       @keyframes fade-out {
         0% {
           opacity: 1;
@@ -39,27 +63,11 @@
         }
       }
       #yaki {
-        margin-left: 2%;
         z-index: 1;
       }
-      #shichirin {
-        top: 250px;
-      }
-      .time {
-        text-align: center;
 
-        font-size: 5em;
-      }
-      header {
-        background-color: aqua;
-        padding: 1em;
-      }
-      header p {
-        text-align: center;
-      }
-      .timer {
-        position: relative;
-      }
+
+
     </style>
   </head>
   <body>
@@ -72,14 +80,12 @@
           <p class="counter"></p>
         </div>
       </div>
-
-        <div class="sanma">
-          <p>
-            <img id="shichirin" src="../images/shichirin.png" />
-            <img id="nama" src="./images/nama.png" />
-            <img id="yaki" src="./images/yaki.png" />
-          </p>
-        </div>
+      <div class="sanma">
+        <p>
+          <img id="nama" src="./images/nama.png" />
+          <img id="yaki" src="./images/yaki.png" />
+        </p>
+      </div>
       </div>
     </main>
     <footer></footer>
@@ -105,7 +111,7 @@
           if (progress < 10000) {
             record.textContent = second + "." + millisecond;
           } else if (progress == 10000) {
-            alert((record.textContent = "タイムオーバー"));
+            alert((record.textContent = "焦げました..."));
             clearInterval(a);
           }
         }, 10);
