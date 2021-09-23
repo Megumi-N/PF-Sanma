@@ -4,7 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-10MMRYZ4PQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-10MMRYZ4PQ");
+    </script>
+    <title>さんまを焼くだけのアプリ</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -13,7 +27,12 @@
       <div class="timer">
         <div class="time">
           <p class="counter">00.00</p>
-          <button class="stop btn btn--yellow btn--circle" type="button">
+          <button
+            id="stopButton"
+            class="stop btn btn--yellow btn--circle"
+            type="button"
+            disabled
+          >
             止
           </button>
         </div>
@@ -67,9 +86,15 @@
               <h5 class="modal-title" id="startModalLabel">さんまを焼く？</h5>
             </div>
             <div class="modal-body" id="startmodalBody">
-              <p>"このアプリはさんまを焼くアプリです。</p>
+              <p>このアプリはたださんまを焼くアプリです。</p>
               <p>焼き色を見ながら美味しいさんまを焼こう！</p>
               <p>よく見てないと焦げるので要注意！</p>
+              <a
+                href="http://twitter.com/share?url=https://gifted-curran-aecac2.netlify.app/&text=さんまを焼くだけのくそアプリ。パソコンから遊んでね。&hashtags=さんま,さんまを焼く,さんまを焼くだけのアプリ"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ツイートする</a
+              >
             </div>
             <div class="modal-footer">
               <button id="start" type="button" class="btn btn-secondary">

@@ -46,13 +46,16 @@ function timer() {
 
     if (progress < 10000) {
       record.textContent = second + "." + millisecond;
-    } else if (progress == 10000) {
+    } else if (10000 <= progress) {
       modal();
       clearInterval(stop);
       record.innerText = "10.00";
       resultmodalTitle.innerText = "焦げた...";
       resultmodalBody.innerHTML =
-        "焼き過ぎってレベルじゃない<br>センスないどころじゃない！";
+        "<p>焼き過ぎってレベルじゃない</p>\
+        <p>センスないどころじゃない</p>\
+        <p>火を扱わないで欲しいレベル</p>\
+        <a href='http://twitter.com/share?url=[シェアするURL]&text=[ツイート内テキスト]&via=[ツイート内に含むユーザ名]&related=[ツイート後に表示されるユーザー]&hashtags=[ハッシュタグ]' target='_blank'>ツイート</a>";
     }
   }, 10);
 }
@@ -63,14 +66,21 @@ stopButton.addEventListener("click", function () {
   if (progress <= 4300) {
     resultmodalTitle.innerText = "生焼けやないかい!";
     resultmodalBody.innerHTML =
-      "生だよ！お腹壊すよ！<br>センスないよ！<br>さんまをよく見て！";
+      "<p>生だよ！</p>\
+      <p>お腹壊すよ！</p>\
+      <p>せっかちがすぎるよ!！</p>\
+      <p>さんまをよく見て、もう一度やってみよう。</p><p>ワンチャンあるかも。</p>";
   } else if (progress < 4700) {
     resultmodalTitle.innerText = "完璧！！";
-    resultmodalBody.innerHTML = "もしかして...職人？？？";
-  } else if (progress < 10000) {
+    resultmodalBody.innerHTML =
+      "<p>もしかして...職人？？？</p>\
+      <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
+      <p>さんま焼き職人に転職しよう！</p>";
+  } else if (4700 <= progress) {
     resultmodalTitle.innerText = "焦げ臭い...";
     resultmodalBody.innerHTML =
-      "焼き過ぎじゃない？<br>センスないよ！<br>修行してきてください！";
+      "<p>焼き過ぎじゃない？??</p>\
+      <p>さんまの気持ちになってもう一回やってみて!!</p>";
   }
 });
 
@@ -79,7 +89,7 @@ startButton.addEventListener("click", function () {
   document.getElementById("nama").classList = "namasakana";
   document.getElementById("yaki").classList = "yakisakana";
   document.getElementById("koge").classList = "kogesakana";
-
+  document.getElementById("stopButton").disabled = "";
   progress = 0;
   timer();
 });
