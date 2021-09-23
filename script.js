@@ -8,8 +8,7 @@ const stopButton = document.querySelector("button.stop");
 const modalBody = document.getElementById("modalBody");
 
 // モーダルの表示に関する関数
-const modal = () => {
-  const dialog = document.getElementById("exampleModal");
+const modal = function () {
   dialog.tabIndex = "-1";
   dialog.ariaModal = "true";
   dialog.role = "dialog";
@@ -31,14 +30,16 @@ function timer() {
     if (progress < 10000) {
       record.textContent = second + "." + millisecond;
     } else if (progress == 10000) {
-      modal();
       clearInterval(stop);
+      record.innerText = "10.00";
+      modal();
       modalTitle.innerText = "焦げた...";
       modalBody.innerHTML =
         "焼き過ぎってレベルじゃない<br>センスないどころじゃない！";
     }
   }, 10);
 }
+
 timer();
 
 stopButton.addEventListener("click", function () {
