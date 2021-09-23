@@ -31,8 +31,8 @@ function timer() {
       record.textContent = second + "." + millisecond;
     } else if (progress == 10000) {
       clearInterval(stop);
-      record.innerText = "10.00";
       modal();
+      record.innerText = "10.00";
       modalTitle.innerText = "焦げた...";
       modalBody.innerHTML =
         "焼き過ぎってレベルじゃない<br>センスないどころじゃない！";
