@@ -55,12 +55,12 @@ img {
   position: absolute;
   width: clamp(30vw 40vw 50vw);
 }
-#nama {
-  animation: fade-out 5000ms ease-in;
+.namasakana {
+  animation: fade-out1 5000ms ease-in;
   animation-fill-mode: forwards;
   z-index: 3;
 }
-@keyframes fade-out {
+@keyframes fade-out1 {
   0% {
     opacity: 1;
   }
@@ -68,13 +68,14 @@ img {
     opacity: 0;
   }
 }
-#yaki {
-  z-index: 2;
-  animation: fade-out 10000ms ease-in;
+.yakisakana {
   animation-fill-mode: forwards;
+  animation: fade-out2 10000ms ease-in;
+  z-index: 2;
+  opacity: 0;
 }
-@keyframes fade-out {
-  50% {
+@keyframes fade-out2 {
+  10% {
     opacity: 1;
   }
   100% {
@@ -82,6 +83,6 @@ img {
   }
 }
 
-#koge {
+.kogesakana {
   z-index: 1;
 }

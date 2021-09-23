@@ -24,32 +24,62 @@
         <img id="koge" src="./images/koge.png" />
       </div>
 
-      <!-- Modal -->
+      <!-- ReStart用Modalはじまり -->
       <div
         class="modal fade modal-dialog modal-fullscreen-sm-down"
-        id="exampleModal"
+        id="resultModal"
         tabindex="-1"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="resultModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <h5 class="modal-title" id="resultModalLabel"></h5>
             </div>
-            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-body" id="resultmodalBody"></div>
             <div class="modal-footer">
               <button
+                id="reload"
                 type="button"
                 class="btn btn-secondary"
-                onclick="window.location.reload();"
+                onclick="location.reload()"
               >
-                再挑戦
+                再挑戦する
               </button>
             </div>
           </div>
         </div>
       </div>
+      <!-- ReStart用Modal終わり -->
+
+      <!-- Start用Modalはじまり -->
+      <div
+        class="modal fade modal-dialog modal-fullscreen-sm-down"
+        id="startModal"
+        tabindex="-1"
+        aria-labelledby="startModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="startModalLabel">さんまを焼く？</h5>
+            </div>
+            <div class="modal-body" id="startmodalBody">
+              <p>"このアプリはさんまを焼くアプリです。</p>
+              <p>焼き色を見ながら美味しいさんまを焼こう！</p>
+              <p>よく見てないと焦げるので要注意！</p>
+            </div>
+            <div class="modal-footer">
+              <button id="start" type="button" class="btn btn-secondary">
+                さんまを焼く
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Start用Modal終わり -->
     </div>
     <footer></footer>
     <link
