@@ -1,49 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap");
+
 * {
   margin: 0;
 }
+
 html body {
-  background-color: pink;
+  background-color: #e0acac;
   font-family: "Inconsolata", monospace;
   min-width: 100vw;
-  /* height: 100vh; */
-}
-header {
+  height: 100vh;
   margin: 0;
-  background-color: aqua;
-  width: 100vw;
-  height: 10vh;
-}
-header p {
-  text-align: center;
-}
-main {
-  width: 100vw;
-  height: 80vh;
-}
-footer {
-  height: 10vh;
 }
 
+header .title {
+  text-align: center;
+  font-size: 2em;
+  color: white;
+}
+
+.container {
+  top: -4em;
+}
 /* タイマーエリア */
 .time {
   text-align: center;
   font-size: 4em;
   z-index: 3;
 }
+button.btn--circle {
+  background-color: red;
+  border-radius: 50%;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  -webkit-box-shadow: 0 5px 0 #e6d900;
+  box-shadow: 0 5px 0 #e6d900;
+}
+
+button.btn--circle:hover {
+  -webkit-transform: translate(0, 3px);
+  transform: translate(0, 3px);
+  -webkit-box-shadow: 0 2px 0 #e6d900;
+  box-shadow: 0 2px 0 #e6d900;
+}
 
 /* 魚エリア */
 .sanma {
   position: relative;
+  width: 500px;
+  margin: 0 auto;
 }
 img {
   position: absolute;
-  width: clamp(80vw 50vw 60vw);
+  width: clamp(30vw 40vw 50vw);
 }
 #nama {
-  animation: fade-out 10000ms ease-in;
+  animation: fade-out 5000ms ease-in;
   animation-fill-mode: forwards;
-  z-index: 2;
+  z-index: 3;
 }
 @keyframes fade-out {
   0% {
@@ -54,5 +69,19 @@ img {
   }
 }
 #yaki {
+  z-index: 2;
+  animation: fade-out 10000ms ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-out {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#koge {
   z-index: 1;
 }

@@ -5,28 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <p>さんまー</p>
-    </header>
-    <main>
+    <header></header>
+    <div class="container">
       <div class="timer">
         <div class="time">
-          <p class="counter"></p>
+          <p class="counter">00.00</p>
+          <button class="stop btn btn--yellow btn--circle" type="button">
+            止
+          </button>
         </div>
       </div>
       <div class="sanma">
-        <p>
-          <img id="nama" src="./images/nama.png" />
-          <img id="yaki" src="./images/yaki.png" />
-        </p>
+        <img id="nama" src="./images/nama.png" />
+        <img id="yaki" src="./images/yaki.png" />
+        <img id="koge" src="./images/koge.png" />
       </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade modal-dialog modal-fullscreen-sm-down"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="window.location.reload();"
+              >
+                再挑戦
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>
