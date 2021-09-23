@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap");
+* {
+  margin: 0;
+}
+html body {
+  background-color: pink;
+  font-family: "Inconsolata", monospace;
+  min-width: 100vw;
+  /* height: 100vh; */
+}
+header {
+  margin: 0;
+  background-color: aqua;
+  width: 100vw;
+  height: 10vh;
+}
+header p {
+  text-align: center;
+}
+main {
+  width: 100vw;
+  height: 80vh;
+}
+footer {
+  height: 10vh;
+}
+
+/* タイマーエリア */
+.time {
+  text-align: center;
+  font-size: 4em;
+  z-index: 3;
+}
+
+/* 魚エリア */
+.sanma {
+  position: relative;
+}
+img {
+  position: absolute;
+  width: clamp(80vw 50vw 60vw);
+}
+#nama {
+  animation: fade-out 10000ms ease-in;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#yaki {
+  z-index: 1;
+}
