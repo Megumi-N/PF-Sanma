@@ -56,7 +56,14 @@ function timer() {
 
 stopButton.addEventListener("click", function () {
   clearInterval(stop);
-  modal();
+  document.getElementById("nama").style.animationPlayState = "paused";
+  document.getElementById("yaki").style.animationPlayState = "paused";
+
+  setTimeout(function () {
+    modal();
+    document.getElementById("reload").innerText = "再挑戦する";
+  }, 2000);
+
   if (progress <= 4.12) {
     resultmodalTitle.innerText = "生焼けやないかい!";
     resultmodalBody.innerHTML =

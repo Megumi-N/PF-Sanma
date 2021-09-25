@@ -58,6 +58,8 @@ img {
 .namasakana {
   animation: fade-out1 5000ms ease-in;
   animation-fill-mode: forwards;
+}
+#nama {
   z-index: 3;
 }
 @keyframes fade-out1 {
@@ -68,11 +70,15 @@ img {
     opacity: 0;
   }
 }
+
 .yakisakana {
-  animation-fill-mode: forwards;
   animation: fade-out2 10000ms ease-in;
+  animation-fill-mode: forwards;
+  opacity: 1;
+}
+
+#yaki {
   z-index: 2;
-  opacity: 0;
 }
 @keyframes fade-out2 {
   10% {
@@ -83,6 +89,6 @@ img {
   }
 }
 
-.kogesakana {
+#koge {
   z-index: 1;
 }
