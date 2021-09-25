@@ -1,17 +1,30 @@
 let stop;
 let progress;
-let addition = 0;
+const namaMax = 4.125;
+const syokuninMax = 4.455;
 
+// タイマーの文字部分
 const record = document.querySelector("p.counter");
 
+// ストップボタン
+const stopButton = document.querySelector("button.stop");
+
+// 開始時のモーダル
+const startDialog = document.getElementById("startModal");
+const startButton = document.getElementById("start");
+
+// 結果時のモーダル
 const resultDialog = document.getElementById("resultModal");
 const resultmodalTitle = document.getElementById("resultModalLabel");
 const resultmodalBody = document.getElementById("resultmodalBody");
 
-const stopButton = document.querySelector("button.stop");
+// 結果のテキスト
+const resultText = document.getElementById("text");
 
-const startDialog = document.getElementById("startModal");
-const startButton = document.getElementById("start");
+// 生魚
+const nama = document.getElementById("nama");
+// 焼き魚
+const yaki = document.getElementById("yaki");
 
 // モーダルの表示に関する関数
 const modal = function () {
@@ -31,6 +44,10 @@ window.onload = () => {
   startDialog.classList.add("show");
 };
 
+const retryBtn = function () {
+  document.getElementById("reload").innerText = "再挑戦する";
+};
+
 function timer() {
   const pre = performance.now();
   stop = setInterval(() => {
@@ -43,6 +60,7 @@ function timer() {
     } else if (sec == 10) {
       clearInterval(stop);
       modal();
+      retryBtn();
       record.innerText = "10.00";
       resultmodalTitle.innerText = "焦げた...";
       resultmodalBody.innerHTML =
@@ -56,39 +74,51 @@ function timer() {
 
 stopButton.addEventListener("click", function () {
   clearInterval(stop);
-  document.getElementById("nama").style.animationPlayState = "paused";
-  document.getElementById("yaki").style.animationPlayState = "paused";
+  nama.style.animationPlayState = "paused";
+  yaki.style.animationPlayState = "paused";
 
+  // 結果の浮き出し文字制御
+  if (syokuninMax <= progress) {
+    text.innerText = "焦げ魚";
+  } else if (namaMax < progress && progress < syokuninMax) {
+    text.innerText = "職人芸";
+  } else {
+    text.innerText = "生焼け";
+  }
+  text.style.zIndex = "4";
+  text.classList.add("blur");
+  retryBtn();
+
+  // 結果モーダル出力
   setTimeout(function () {
     modal();
-    document.getElementById("reload").innerText = "再挑戦する";
-  }, 2000);
-
-  if (progress <= 4.12) {
-    resultmodalTitle.innerText = "生焼けやないかい!";
-    resultmodalBody.innerHTML =
-      "<p>生だよ！</p>\
+    if (syokuninMax <= progress) {
+      resultmodalTitle.innerText = "焦げ臭い...";
+      resultmodalBody.innerHTML =
+        "<p>焼き過ぎじゃない？??</p>\
+      <p>さんまの気持ちになってもう一回やってみて!!</p>";
+    } else if (namaMax < progress && progress < syokuninMax) {
+      resultmodalTitle.innerText = "完璧！！";
+      resultmodalBody.innerHTML =
+        "<p>もしかして...職人？？？</p>\
+      <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
+      <p>さんま焼き職人に転職しよう！</p>";
+    } else {
+      resultmodalTitle.innerText = "生焼けやないかい!";
+      resultmodalBody.innerHTML =
+        "<p>生だよ！</p>\
       <p>お腹壊すよ！</p>\
       <p>せっかちがすぎるよ!！</p>\
       <p>さんまをよく見て、もう一度やってみよう。</p><p>ワンチャンあるかも。</p>";
-  } else if (progress < 4.45) {
-    resultmodalTitle.innerText = "完璧！！";
-    resultmodalBody.innerHTML =
-      "<p>もしかして...職人？？？</p>\
-      <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
-      <p>さんま焼き職人に転職しよう！</p>";
-  } else if (4.45 <= progress) {
-    resultmodalTitle.innerText = "焦げ臭い...";
-    resultmodalBody.innerHTML =
-      "<p>焼き過ぎじゃない？??</p>\
-      <p>さんまの気持ちになってもう一回やってみて!!</p>";
-  }
+    }
+  }, 3000);
 });
 
+// スタートボタン
 startButton.addEventListener("click", function () {
   startDialog.remove();
-  document.getElementById("nama").classList = "namasakana";
-  document.getElementById("yaki").classList = "yakisakana";
+  nama.classList = "namasakana";
+  yaki.classList = "yakisakana";
   document.getElementById("koge").classList = "kogesakana";
   document.getElementById("stopButton").disabled = "";
   progress = 0;

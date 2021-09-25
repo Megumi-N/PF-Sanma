@@ -21,12 +21,15 @@ header .title {
 .container {
   top: -4em;
 }
+
 /* タイマーエリア */
 .time {
   text-align: center;
   font-size: 4em;
   z-index: 3;
 }
+
+/* 停止ボタン */
 button.btn--circle {
   background-color: red;
   border-radius: 50%;
@@ -37,12 +40,41 @@ button.btn--circle {
   -webkit-box-shadow: 0 5px 0 #e6d900;
   box-shadow: 0 5px 0 #e6d900;
 }
-
 button.btn--circle:hover {
   -webkit-transform: translate(0, 3px);
   transform: translate(0, 3px);
   -webkit-box-shadow: 0 2px 0 #e6d900;
   box-shadow: 0 2px 0 #e6d900;
+}
+
+/* ふわっと出る結果エリア */
+#text {
+  position: absolute;
+  font-size: 10em;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  color: blue;
+  -webkit-text-stroke-color: whitesmoke;
+  -webkit-text-stroke-width: 3px;
+}
+
+.blur {
+  animation-name: blurAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurAnime {
+  from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+  to {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* 魚エリア */
@@ -55,6 +87,7 @@ img {
   position: absolute;
   width: clamp(30vw 40vw 50vw);
 }
+
 .namasakana {
   animation: fade-out1 5000ms ease-in;
   animation-fill-mode: forwards;
