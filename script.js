@@ -64,8 +64,7 @@ function timer() {
       resultmodalBody.innerHTML =
         "<p>焼き過ぎってレベルじゃない</p>\
         <p>センスないどころじゃない</p>\
-        <p>火を扱わないで欲しいレベル</p>\
-        <a href='http://twitter.com/share?url=[シェアするURL]&text=[ツイート内テキスト]&via=[ツイート内に含むユーザ名]&related=[ツイート後に表示されるユーザー]&hashtags=[ハッシュタグ]' target='_blank'>ツイート</a>";
+        <p>火を扱わないで欲しいレベル</p>";
     }
   }, 10);
 }
@@ -102,7 +101,9 @@ stopButton.addEventListener("click", function () {
       resultmodalBody.innerHTML =
         "<p>もしかして...職人？？？</p>\
       <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
-      <p>さんま焼き職人に転職しよう！</p>";
+      <p>さんま焼き職人に転職しよう！</p>\
+      <a href='https://twitter.com/intent/tweet?&text=さんまを完璧に焼ける自信があります。%0a%0aこれはさんまを焼くだけのアプリです。%0aパソコンから遊んでね。%0a%23さんま%0a%23さんまを焼く%0a%23さんまを焼くだけのアプリ%0a&url=https://gifted-curran-aecac2.netlify.app/'\
+      target='_blank' rel='noopener noreferrer'>ツイートする</a>";
     } else {
       resultmodalTitle.innerText = "生焼けやないかい!";
       resultmodalBody.innerHTML =
