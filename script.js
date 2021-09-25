@@ -1,7 +1,5 @@
 let stop;
 let progress;
-const namaMax = 4.125;
-const syokuninMax = 4.455;
 
 // タイマーの文字部分
 const record = document.querySelector("p.counter");
@@ -76,6 +74,8 @@ stopButton.addEventListener("click", function () {
   clearInterval(stop);
   nama.style.animationPlayState = "paused";
   yaki.style.animationPlayState = "paused";
+  const namaMax = 4.125;
+  const syokuninMax = 4.455;
 
   // 結果の浮き出し文字制御
   if (syokuninMax <= progress) {
