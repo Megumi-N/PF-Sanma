@@ -33,16 +33,16 @@ window.onload = () => {
 
 function timer() {
   const pre = performance.now();
-  const stop = setInterval(() => {
+  stop = setInterval(() => {
     const now = performance.now();
-    const progress = ((now - pre).toFixed(0) / 1000).toFixed(3); //toFix(0)でミリ秒以下を非表示
+    progress = ((now - pre).toFixed(0) / 1000).toFixed(3); //toFix(0)でミリ秒以下を非表示
     const sec = "0" + Math.trunc(progress);
     const ms = String(progress).split(".")[1].slice(0, -1);
     if (sec < 10) {
       record.textContent = sec + "." + ms;
-    } else {
-      modal();
+    } else if (sec == 10) {
       clearInterval(stop);
+      modal();
       record.innerText = "10.00";
       resultmodalTitle.innerText = "焦げた...";
       resultmodalBody.innerHTML =
@@ -51,55 +51,26 @@ function timer() {
         <p>火を扱わないで欲しいレベル</p>\
         <a href='http://twitter.com/share?url=[シェアするURL]&text=[ツイート内テキスト]&via=[ツイート内に含むユーザ名]&related=[ツイート後に表示されるユーザー]&hashtags=[ハッシュタグ]' target='_blank'>ツイート</a>";
     }
-    setInterval(stop);
   }, 10);
 }
-// タイマー
-// function timer() {
-//   const start = new Date().getTime();
-//   stop = setInterval(function () {
-//     progress = new Date().getTime() - start + addition;
-//     const noms = progress / 1000;
-//     const millisecond = progress
-//       ? ("0" + String(noms).split(".")[1]).slice(-2)
-//       : "00";
-//     const nos = Math.trunc(noms);
-//     // 一日24時間×60分×60秒＝86,400秒
-//     const second = nos ? ("0" + (((nos % 86400) % 3600) % 60)).slice(-2) : "00";
-
-//     if (progress < 10000) {
-//       record.textContent = second + "." + millisecond;
-//     } else if (10000 <= progress) {
-//       modal();
-//       clearInterval(stop);
-//       record.innerText = "10.00";
-//       resultmodalTitle.innerText = "焦げた...";
-//       resultmodalBody.innerHTML =
-//         "<p>焼き過ぎってレベルじゃない</p>\
-//         <p>センスないどころじゃない</p>\
-//         <p>火を扱わないで欲しいレベル</p>\
-//         <a href='http://twitter.com/share?url=[シェアするURL]&text=[ツイート内テキスト]&via=[ツイート内に含むユーザ名]&related=[ツイート後に表示されるユーザー]&hashtags=[ハッシュタグ]' target='_blank'>ツイート</a>";
-//     }
-//   }, 10);
-// }
 
 stopButton.addEventListener("click", function () {
   clearInterval(stop);
   modal();
-  if (progress <= 4300) {
+  if (progress <= 4.12) {
     resultmodalTitle.innerText = "生焼けやないかい!";
     resultmodalBody.innerHTML =
       "<p>生だよ！</p>\
       <p>お腹壊すよ！</p>\
       <p>せっかちがすぎるよ!！</p>\
       <p>さんまをよく見て、もう一度やってみよう。</p><p>ワンチャンあるかも。</p>";
-  } else if (progress < 4700) {
+  } else if (progress < 4.45) {
     resultmodalTitle.innerText = "完璧！！";
     resultmodalBody.innerHTML =
       "<p>もしかして...職人？？？</p>\
       <p>並び立つものがいないくらいさんまを焼く技術に溢れてるかも...</p>\
       <p>さんま焼き職人に転職しよう！</p>";
-  } else if (4700 <= progress) {
+  } else if (4.45 <= progress) {
     resultmodalTitle.innerText = "焦げ臭い...";
     resultmodalBody.innerHTML =
       "<p>焼き過ぎじゃない？??</p>\
